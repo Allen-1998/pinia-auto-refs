@@ -1,4 +1,6 @@
-# Getting started
+# pinia-auto-refs
+
+Pinia Auto Refs on-demand for Vite. With TypeScript support. Powered by [unplugin-auto-import](https://github.com/antfu/unplugin-auto-import).
 
 ## without
 
