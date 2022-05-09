@@ -52,16 +52,6 @@ export default defineConfig({
 })
 ```
 
-## Typescript definitions
-
-```json
-{
-  "compilerOptions": {
-    "types": ["pinia-auto-refs"]
-  }
-}
-```
-
 ## Config Options
 
 ```ts

@@ -1,5 +1,7 @@
 # pinia-auto-refs
 
+[![NPM version](https://img.shields.io/npm/v/pinia-auto-refs?color=a1b858&label=)](https://www.npmjs.com/package/pinia-auto-refs)
+
 Pinia Auto Refs on-demand for Vite. With TypeScript support. Powered by [unplugin-auto-import](https://github.com/antfu/unplugin-auto-import).
 
 ## without
@@ -52,16 +54,6 @@ export default defineConfig({
     PiniaAutoRefs(),
   ],
 })
-```
-
-## Typescript definitions
-
-```json
-{
-  "compilerOptions": {
-    "types": ["pinia-auto-refs"]
-  }
-}
 ```
 
 ## Config Options

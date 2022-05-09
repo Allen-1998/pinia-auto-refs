@@ -30,6 +30,10 @@ export default defineConfig({
         text: 'Guide',
         children: [
           {
+            text: 'Why',
+            link: '/why',
+          },
+          {
             text: 'Install',
             link: '/',
           },
