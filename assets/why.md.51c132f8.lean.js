@@ -1,1 +1,0 @@
-import{_ as s,c as n,o as a,a as t}from"./app.93c9021b.js";const _='{"title":"Why","description":"","frontmatter":{},"headers":[{"level":2,"title":"without","slug":"without"},{"level":2,"title":"with","slug":"with"}],"relativePath":"why.md"}',e={},o=t("",5),p=[o];function c(r,u,i,l,d,k){return a(),n("div",null,p)}var w=s(e,[["render",c]]);export{_ as __pageData,w as default};
