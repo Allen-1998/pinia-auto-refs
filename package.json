@@ -1,0 +1,48 @@
+{
+  "name": "pinia-auto-refs",
+  "version": "0.0.0",
+  "description": "Auto storeToRefs for use pinia state.",
+  "homepage": "https://github.com/Allen-1998/pinia-auto-refs#readme",
+  "license": "MIT",
+  "author": "Allen-1998",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Allen-1998/pinia-auto-refs.git"
+  },
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs"
+    }
+  },
+  "files": [
+    "dist",
+    "*.d.ts"
+  ],
+  "sideEffects": false,
+  "scripts": {
+    "build": "tsup src/*.ts --format cjs,esm --dts --splitting --clean",
+    "lint": "eslint . --ext .ts",
+    "docs": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "p": "git add . && git commit -m 'update' && git push",
+    "v": "npm version patch && git push && git push origin --tags"
+  },
+  "devDependencies": {
+    "@babel/types": "7.17.0",
+    "@types/node": "17.0.21",
+    "@typescript-eslint/eslint-plugin": "5.14.0",
+    "@typescript-eslint/parser": "5.14.0",
+    "eslint": "8.10.0",
+    "eslint-config-prettier": "8.5.0",
+    "eslint-plugin-prettier": "4.0.0",
+    "eslint-plugin-simple-import-sort": "7.0.0",
+    "prettier": "2.5.1",
+    "typescript": "4.5.4",
+    "vitepress": "0.22.4",
+    "tsup": "5.12.7"
+  }
+}
