@@ -2,7 +2,6 @@
   "name": "pinia-auto-refs",
   "version": "0.0.0",
   "description": "Auto storeToRefs for use pinia state.",
-  "homepage": "https://github.com/Allen-1998/pinia-auto-refs#readme",
   "author": "Allen-1998",
   "repository": {
     "type": "git",
