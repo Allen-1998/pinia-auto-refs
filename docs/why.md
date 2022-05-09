@@ -1,4 +1,4 @@
-# Why
+# Why Pinia Auto Refs
 
 ## without
 
