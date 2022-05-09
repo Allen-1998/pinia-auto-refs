@@ -40,16 +40,12 @@ export default defineConfig({
   },
   plugins: [
     AutoImport({
-      dts: 'src/auto-imports.d.ts',
       imports: [
-        'vue',
-        'vue-router',
         'pinia',
         {
           '@/helper/pinia-auto-refs': ['useStore'], // !important
         },
       ],
-      resolvers: [ElementPlusResolver()],
     }),
     PiniaAutoRefs(),
   ],
