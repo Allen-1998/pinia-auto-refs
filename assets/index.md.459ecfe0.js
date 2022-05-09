@@ -11,16 +11,12 @@ import{_ as n,c as s,o as a,a as t}from"./app.93c9021b.js";const f='{"title":"Ge
   <span class="token punctuation">}</span><span class="token punctuation">,</span>
   plugins<span class="token operator">:</span> <span class="token punctuation">[</span>
     <span class="token function">AutoImport</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-      dts<span class="token operator">:</span> <span class="token string">&#39;src/auto-imports.d.ts&#39;</span><span class="token punctuation">,</span>
       imports<span class="token operator">:</span> <span class="token punctuation">[</span>
-        <span class="token string">&#39;vue&#39;</span><span class="token punctuation">,</span>
-        <span class="token string">&#39;vue-router&#39;</span><span class="token punctuation">,</span>
         <span class="token string">&#39;pinia&#39;</span><span class="token punctuation">,</span>
         <span class="token punctuation">{</span>
           <span class="token string-property property">&#39;@/helper/pinia-auto-refs&#39;</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">&#39;useStore&#39;</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token comment">// !important</span>
         <span class="token punctuation">}</span><span class="token punctuation">,</span>
       <span class="token punctuation">]</span><span class="token punctuation">,</span>
-      resolvers<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token function">ElementPlusResolver</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
     <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
     <span class="token function">PiniaAutoRefs</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
   <span class="token punctuation">]</span><span class="token punctuation">,</span>
