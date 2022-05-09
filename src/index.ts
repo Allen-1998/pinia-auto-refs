@@ -18,7 +18,7 @@ export default function (options: Options = {}) {
   Object.assign(options, defaultOptions)
 
   const { storeDir, excludes, outputFile } = options as Required<Options>
-  const storePath = resolve(__dirname, storeDir)
+  const storePath = resolve(process.cwd(), storeDir)
   const outputDir = outputFile.replace(/(\/[^/]*).ts/, '')
   fs.readdir(outputDir).catch(() => fs.mkdir(outputDir))
 
@@ -28,7 +28,7 @@ export default function (options: Options = {}) {
       .map((i) => i.replace('.ts', ''))
       .filter((i) => !excludes.includes(i))
 
-    const ctx = `// auto import by 'pinia-auto-refs'
+    const ctx = `// "https://github.com/Allen-1998/pinia-auto-refs"
 ${storeNames.reduce(
   (str, storeName) => `${str}import ${storeName}Store from '@/store/${storeName}'
 `,
