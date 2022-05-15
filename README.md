@@ -4,6 +4,8 @@
 
 Pinia Auto Refs on-demand for Vite. With TypeScript support. Powered by [unplugin-auto-import](https://github.com/antfu/unplugin-auto-import).
 
+[掘金：受够了手动 storeToRefs？来试试这个 vite 插件吧](https://juejin.cn/post/7097893752030625828/)
+
 ## without
 
 ```ts
