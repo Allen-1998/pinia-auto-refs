@@ -15,7 +15,7 @@ const defaultOptions: Options = {
 }
 
 export default function (options: Options = {}) {
-  Object.assign(options, defaultOptions)
+  options = { ...defaultOptions, ...options }
 
   const { storeDir, excludes, outputFile } = options as Required<Options>
   const storePath = resolve(process.cwd(), storeDir)
@@ -25,16 +25,21 @@ export default function (options: Options = {}) {
   async function generateConfigFiles() {
     const storesPath = await fs.readdir(storePath)
     const storeNames = storesPath
+      .filter((i) => i.endsWith('.ts'))
       .map((i) => i.replace('.ts', ''))
       .filter((i) => !excludes.includes(i))
 
     const ctx = `// "https://github.com/Allen-1998/pinia-auto-refs"
+import { AutoToRefs, ToRef } from 'vue'
+
 ${storeNames.reduce(
-  (str, storeName) => `${str}import ${storeName}Store from '@/store/${storeName}'
+  (str, storeName) => `${str}import ${storeName}Store from '${storeDir.replace(
+    'src',
+    '@'
+  )}/${storeName}'
 `,
   ''
 )}
-import { ToRef, AutoToRefs } from 'vue'
 declare module 'vue' {
   export type AutoToRefs<T> = {
     [K in keyof T]: T[K] extends Function ? T[K] : ToRef<T[K]>
