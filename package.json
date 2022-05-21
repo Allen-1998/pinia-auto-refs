@@ -3,6 +3,7 @@
   "version": "0.0.4",
   "description": "Auto storeToRefs for use pinia state.",
   "author": "Allen-1998",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/Allen-1998/pinia-auto-refs.git"

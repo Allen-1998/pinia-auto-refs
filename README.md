@@ -3,7 +3,7 @@
 [![NPM version](https://img.shields.io/npm/v/pinia-auto-refs?color=a1b858&label=)](https://www.npmjs.com/package/pinia-auto-refs)
 [![NPM downloads](https://img.shields.io/npm/dm/pinia-auto-refs.svg?style=flat)](https://npmjs.com/package/pinia-auto-refs)
 
-Pinia Auto Refs on-demand for Vite. With TypeScript support. Powered by [unplugin-auto-import](https://github.com/antfu/unplugin-auto-import).
+Pinia Auto Refs on-demand for Vite. With TypeScript support. Powered by [unplugin-auto-import](https://github.com/antfu/unplugin-auto-import).Inspiration by [vieruuuu](https://github.com/vieruuuu) in [pinia/issues#718](https://github.com/vuejs/pinia/issues/718).
 
 [掘金：受够了手动 storeToRefs？来试试这个 vite 插件吧](https://juejin.cn/post/7097893752030625828/)
 
