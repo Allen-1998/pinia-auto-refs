@@ -1,6 +1,7 @@
 # pinia-auto-refs
 
 [![NPM version](https://img.shields.io/npm/v/pinia-auto-refs?color=a1b858&label=)](https://www.npmjs.com/package/pinia-auto-refs)
+[![NPM downloads](https://img.shields.io/npm/dm/pinia-auto-refs.svg?style=flat)](https://npmjs.com/package/pinia-auto-refs)
 
 Pinia Auto Refs on-demand for Vite. With TypeScript support. Powered by [unplugin-auto-import](https://github.com/antfu/unplugin-auto-import).
 
