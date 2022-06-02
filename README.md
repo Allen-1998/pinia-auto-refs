@@ -46,7 +46,7 @@ export default defineConfig({
       imports: [
         'pinia',
         {
-          '@/helper/pinia-auto-refs': ['useStore'], // !important
+          '@/helper/pinia-auto-refs': ['useStore'],
         },
       ],
     }),
@@ -69,4 +69,16 @@ const defaultOptions = {
   excludes: ['index'],
   outputFile: 'src/helper/pinia-auto-refs.ts',
 }
+```
+
+## Attentions
+
+You need to switch the store export mode to `export default`, because we can't get what you exported directly when we import automatically. Using `export default` makes it much easier.
+
+```ts
+// store/test.ts
+export default defineStore({
+  id: 'test',
+  /* ... */
+})
 ```

@@ -47,3 +47,15 @@ const defaultOptions = {
   outputFile: 'src/helper/pinia-auto-refs.ts',
 }
 ```
+
+## Attentions
+
+You need to switch the store export mode to `export default`, because we can't get what you exported directly when we import automatically. Using `export default` makes it much easier.
+
+```ts
+// store/test.ts
+export default defineStore({
+  id: 'test',
+  /* ... */
+})
+```

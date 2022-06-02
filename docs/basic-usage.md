@@ -1,5 +1,7 @@
 # Basic usage
 
+You need to switch the store export mode to `export default`, because we can't get what you exported directly when we import automatically. Using `export default` makes it much easier.
+
 ### store/index.ts
 
 ```ts
