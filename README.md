@@ -84,4 +84,4 @@ export default defineStore({
 ```
 ## Playground
 
-[playground](stackblitz.com/edit/vitejs-vite-rf7juf)
+[playground](https://stackblitz.com/edit/vitejs-vite-rf7juf)
