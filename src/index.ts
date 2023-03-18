@@ -30,7 +30,10 @@ export default function (options: Options = {}) {
       .filter((i) => !excludes.includes(i))
 
     const ctx = `// "https://github.com/Allen-1998/pinia-auto-refs"
-import { AutoToRefs, ToRef } from 'vue'
+/* eslint-disable */
+/* prettier-ignore */
+// @ts-nocheck
+import type { AutoToRefs, ToRef } from 'vue'
 
 ${storeNames.reduce(
   (str, storeName) => `${str}import ${storeName}Store from '${storeDir.replace(
