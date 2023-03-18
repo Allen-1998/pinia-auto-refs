@@ -1,6 +1,6 @@
 {
   "name": "pinia-auto-refs",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Auto storeToRefs for use pinia state.",
   "author": "Allen-1998",
   "license": "MIT",
