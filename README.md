@@ -5,7 +5,8 @@
 
 Pinia Auto Refs on-demand for Vite. With TypeScript support. Powered by [unplugin-auto-import](https://github.com/antfu/unplugin-auto-import).Inspiration by [vieruuuu](https://github.com/vieruuuu) in [pinia/issues#718](https://github.com/vuejs/pinia/issues/718).
 
-[掘金：受够了手动 storeToRefs？来试试这个 vite 插件吧](https://juejin.cn/post/7097893752030625828/)
+[掘金：受够了手动 storeToRefs？来试试这个 vite 插件吧](https://juejin.cn/post/7097893752030625828/)<br>
+[Playground](https://stackblitz.com/edit/vitejs-vite-rf7juf)
 
 ## without
 
@@ -82,6 +83,3 @@ export default defineStore({
   /* ... */
 })
 ```
-## Playground
-
-[playground](https://stackblitz.com/edit/vitejs-vite-rf7juf)
