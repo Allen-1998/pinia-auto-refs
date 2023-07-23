@@ -23,19 +23,21 @@
   ],
   "sideEffects": false,
   "scripts": {
-    "build": "tsup src/*.ts --format cjs,esm --dts --splitting --clean",
+    "build": "tsup-node src/*.ts --format cjs,esm --dts --splitting --clean",
     "lint": "eslint . --ext .ts",
     "docs": "vitepress dev docs",
     "docs:build": "vitepress build docs",
     "p": "git add . && git commit -m 'feat: update' && git push",
     "v": "npm version patch && git push && git push origin --tags"
   },
+  "dependencies": {
+    "chokidar": "3.5.3"
+  },
   "devDependencies": {
     "@babel/types": "7.17.0",
     "@types/node": "17.0.21",
     "@typescript-eslint/eslint-plugin": "5.14.0",
     "@typescript-eslint/parser": "5.14.0",
-    "chokidar": "3.5.3",
     "eslint": "8.10.0",
     "eslint-config-prettier": "8.5.0",
     "eslint-plugin-prettier": "4.0.0",
