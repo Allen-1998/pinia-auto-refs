@@ -46,7 +46,7 @@ ${storeNames.reduce(
 import store from '${storeDir.replace(
   'src',
   '@'
-)}}'
+)}'
 
 declare module 'vue' {
   export type AutoToRefs<T> = {
