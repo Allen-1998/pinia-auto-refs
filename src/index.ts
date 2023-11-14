@@ -6,18 +6,20 @@ type Options = Partial<{
   storeDir: string
   excludes: string[]
   outputFile: string
+  isDev: boolean;
 }>
 
 const defaultOptions: Options = {
   storeDir: 'src/store',
   excludes: ['index'],
   outputFile: 'src/helper/pinia-auto-refs.ts',
+  isDev: false,
 }
 
 export default function (options: Options = {}) {
   options = { ...defaultOptions, ...options }
 
-  const { storeDir, excludes, outputFile } = options as Required<Options>
+  const { storeDir, excludes, outputFile,isDev } = options as Required<Options>
   const storePath = resolve(process.cwd(), storeDir)
   const outputDir = outputFile.replace(/(\/[^/]*).ts/, '')
   fs.readdir(outputDir).catch(() => fs.mkdir(outputDir))
@@ -71,10 +73,11 @@ export function useStore<T extends keyof typeof storeExports>(storeName: T) {
   }
 
   generateConfigFiles()
-  const watcher = chokidar.watch(storePath)
-  watcher.on('add', () => generateConfigFiles())
-  watcher.on('unlink', () => generateConfigFiles())
-  
+  if (process.env.NODE_ENV === 'development' || isDev) {
+    const watcher = chokidar.watch(storePath)
+    watcher.on('add', () => generateConfigFiles())
+    watcher.on('unlink', () => generateConfigFiles())
+  }
   return {
     name: 'pinia-auto-refs',
   }
