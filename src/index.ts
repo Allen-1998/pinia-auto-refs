@@ -21,7 +21,8 @@ export default function (options: Options = {}) {
 
   const { storeDir, excludes, outputFile,isDev } = options as Required<Options>
   const storePath = resolve(process.cwd(), storeDir)
-  const outputDir = outputFile.replace(/(\/[^/]*).ts/, '')
+  const outputFileInfo = parse(outputFile)
+  const outputDir = outputFileInfo.dir || './' // outputFile.replace(/(\/[^/]*).ts/, '')
   fs.readdir(outputDir).catch(() => fs.mkdir(outputDir))
 
   async function generateConfigFiles() {
