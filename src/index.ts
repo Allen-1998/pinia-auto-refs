@@ -1,5 +1,5 @@
 import { promises as fs } from 'fs'
-import { resolve } from 'path'
+import { resolve, parse, relative } from 'path'
 import chokidar from 'chokidar'
 
 type Options = Partial<{
@@ -21,7 +21,9 @@ export default function (options: Options = {}) {
 
   const { storeDir, excludes, outputFile, isDev } = options as Required<Options>
   const storePath = resolve(process.cwd(), storeDir)
-  const outputDir = outputFile.replace(/(\/[^/]*).ts/, '')
+  const outputFileInfo = parse(outputFile)
+  const outputDir = outputFileInfo.dir || './' // outputFile.replace(/(\/[^/]*).ts/, '')
+  const relativePath = relative(outputDir, storePath).replaceAll('\\', '/')
   fs.readdir(outputDir).catch(() => fs.mkdir(outputDir))
 
   async function generateConfigFiles() {
@@ -39,17 +41,11 @@ import type { ToRef, UnwrapRef } from 'vue'
 import { storeToRefs } from 'pinia'
 
 ${storeNames.reduce(
-  (str, storeName) => `${str}import ${storeName}Store from '${storeDir.replace(
-    'src',
-    '@'
-  )}/${storeName}'
+  (str, storeName) => `${str}import ${storeName}Store from '${relativePath}/${storeName}'
 `,
   ''
 )}
-import store from '${storeDir.replace(
-  'src',
-  '@'
-)}'
+import store from '${relativePath}'
 
 type StoreToRefs<T extends StoreDefinition> = {
   [K in keyof ReturnType<T>]: ReturnType<T>[K] extends Function
