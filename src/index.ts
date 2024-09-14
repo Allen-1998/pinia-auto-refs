@@ -19,7 +19,7 @@ const defaultOptions: Options = {
 export default function (options: Options = {}) {
   options = { ...defaultOptions, ...options }
 
-  const { storeDir, excludes, outputFile,isDev } = options as Required<Options>
+  const { storeDir, excludes, outputFile, isDev } = options as Required<Options>
   const storePath = resolve(process.cwd(), storeDir)
   const outputDir = outputFile.replace(/(\/[^/]*).ts/, '')
   fs.readdir(outputDir).catch(() => fs.mkdir(outputDir))
@@ -35,7 +35,8 @@ export default function (options: Options = {}) {
 /* eslint-disable */
 /* prettier-ignore */
 // @ts-nocheck
-import type { AutoToRefs, ToRef } from 'vue'
+import type { ToRef, UnwrapRef } from 'vue'
+import { storeToRefs } from 'pinia'
 
 ${storeNames.reduce(
   (str, storeName) => `${str}import ${storeName}Store from '${storeDir.replace(
@@ -50,10 +51,10 @@ import store from '${storeDir.replace(
   '@'
 )}'
 
-declare module 'vue' {
-  export type AutoToRefs<T> = {
-    [K in keyof T]: T[K] extends Function ? T[K] : ToRef<T[K]>
-  }
+type StoreToRefs<T extends StoreDefinition> = {
+  [K in keyof ReturnType<T>]: ReturnType<T>[K] extends Function
+    ? ReturnType<T>[K]
+    : ToRef<UnwrapRef<ReturnType<T>[K]>>
 }
 
 const storeExports = {
@@ -66,7 +67,7 @@ ${storeNames.reduce(
 export function useStore<T extends keyof typeof storeExports>(storeName: T) {
   const targetStore = storeExports[storeName](store)
   const storeRefs = storeToRefs(targetStore)
-  return { ...targetStore, ...storeRefs } as unknown as AutoToRefs<ReturnType<typeof storeExports[T]>>
+  return { ...targetStore, ...storeRefs } as StoreToRefs<(typeof storeExports)[T]>
 }
 `
     fs.writeFile(outputFile, ctx, 'utf-8')
